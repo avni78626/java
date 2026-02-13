@@ -1,0 +1,81 @@
+// Parent Class
+class SmartDevice {
+    int deviceId;
+    String brand;
+
+    public SmartDevice(int deviceId, String brand) {
+        this.deviceId = deviceId;
+        this.brand = brand;
+    }
+
+    public void turnOn() {
+        System.out.println("Device is ON");
+    }
+
+    public void turnOff() {
+        System.out.println("Device is OFF");
+    }
+}
+
+// Child Class 1
+class SmartLight extends SmartDevice {
+    int brightnessLevel;
+
+    public SmartLight(int deviceId, String brand, int brightnessLevel) {
+        super(deviceId, brand);
+        this.brightnessLevel = brightnessLevel;
+    }
+
+    public void adjustBrightness(int level) {
+        brightnessLevel = level;
+        System.out.println("Brightness set to: " + brightnessLevel);
+    }
+}
+
+// Child Class 2
+class SmartThermostat extends SmartDevice {
+    double temperature;
+
+    public SmartThermostat(int deviceId, String brand, double temperature) {
+        super(deviceId, brand);
+        this.temperature = temperature;
+    }
+
+    public void setTemperature(double temp) {
+        temperature = temp;
+        System.out.println("Temperature set to: " + temperature);
+    }
+}
+
+// Child Class 3
+class SmartCamera extends SmartDevice {
+    String resolution;
+
+    public SmartCamera(int deviceId, String brand, String resolution) {
+        super(deviceId, brand);
+        this.resolution = resolution;
+    }
+
+    public void recordVideo() {
+        System.out.println("Recording video in " + resolution + " resolution");
+    }
+}
+
+// Main Class
+class MainSmartHome {
+    public static void main(String[] args) {
+
+        SmartLight light = new SmartLight(1, "Philips", 70);
+        SmartThermostat thermostat = new SmartThermostat(2, "Samsung", 24.5);
+        SmartCamera camera = new SmartCamera(3, "Sony", "1080p");
+
+        light.turnOn();
+        light.adjustBrightness(90);
+
+        thermostat.turnOn();
+        thermostat.setTemperature(22.0);
+
+        camera.turnOn();
+        camera.recordVideo();
+    }
+}
