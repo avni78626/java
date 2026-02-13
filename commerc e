@@ -1,0 +1,66 @@
+// Level 1
+class Order {
+    int orderId;
+    double amount;
+
+    public Order(int orderId, double amount) {
+        this.orderId = orderId;
+        this.amount = amount;
+    }
+
+    public void displayOrder() {
+        System.out.println("Order ID: " + orderId);
+        System.out.println("Order Amount: $" + amount);
+    }
+}
+
+// Level 2
+class OnlineOrder extends Order {
+    String deliveryAddress;
+
+    public OnlineOrder(int orderId, double amount, String deliveryAddress) {
+        super(orderId, amount);
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public void displayOnlineOrder() {
+        displayOrder();
+        System.out.println("Delivery Address: " + deliveryAddress);
+    }
+}
+
+// Level 3
+class InternationalOrder extends OnlineOrder {
+    double shippingFee;
+
+    public InternationalOrder(int orderId, double amount, String deliveryAddress, double shippingFee) {
+        super(orderId, amount, deliveryAddress);
+        this.shippingFee = shippingFee;
+    }
+
+    public double calculateTotalAmount() {
+        return amount + shippingFee;
+    }
+
+    public void displayInternationalOrder() {
+        displayOnlineOrder();
+        System.out.println("Shipping Fee: $" + shippingFee);
+        System.out.println("Total Amount: $" + calculateTotalAmount());
+    }
+}
+
+// Main Class
+public class MainECommerce {
+    public static void main(String[] args) {
+
+        InternationalOrder order = new InternationalOrder(
+                5001,
+                250.00,
+                "123 Main Street, New York",
+                40.00
+        );
+
+        System.out.println("=== International Order Details ===");
+        order.displayInternationalOrder();
+    }
+}
