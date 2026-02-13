@@ -1,0 +1,51 @@
+// Parent Class
+class Staff {
+    int staffId;
+    String name;
+
+    public Staff(int staffId, String name) {
+        this.staffId = staffId;
+        this.name = name;
+    }
+
+    public void displayStaffDetails() {
+        System.out.println("Staff ID: " + staffId);
+        System.out.println("Name: " + name);
+    }
+}
+
+// Child Class 1
+class TeachingStaff extends Staff {
+    String subject;
+
+    public TeachingStaff(int staffId, String name, String subject) {
+        super(staffId, name);
+        this.subject = subject;
+    }
+
+    public void displayTeachingInfo() {
+        displayStaffDetails();
+        System.out.println("Subject: " + subject);
+    }
+}
+
+// Child Class 2
+class NonTeachingStaff extends Staff {
+    String department;
+
+    public NonTeachingStaff(int staffId, String name, String department) {
+        super(staffId, name);
+        this.department = department;
+    }
+
+    public void displayDepartmentInfo() {
+        displayStaffDetails();
+        System.out.println("Department: " + department);
+    }
+}
+
+// Main Class
+public class UniversityStaffSystem {
+    public static void main(String[] args) {
+
+        TeachingStaff teache
