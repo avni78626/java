@@ -1,0 +1,91 @@
+// Abstract Class
+abstract class Employee {
+    int empId;
+    String name;
+    double baseSalary;
+
+    public Employee(int empId, String name, double baseSalary) {
+        this.empId = empId;
+        this.name = name;
+        this.baseSalary = baseSalary;
+    }
+
+    // Concrete method
+    public void displayEmployeeInfo() {
+        System.out.println("Employee ID: " + empId);
+        System.out.println("Name: " + name);
+    }
+
+    // Abstract method
+    abstract double calculateSalary();
+}
+
+// Full-Time Employee
+class FullTimeEmployee extends Employee {
+    double bonus;
+
+    public FullTimeEmployee(int empId, String name, double baseSalary, double bonus) {
+        super(empId, name, baseSalary);
+        this.bonus = bonus;
+    }
+
+    @Override
+    double calculateSalary() {
+        return baseSalary + bonus;
+    }
+}
+
+// Part-Time Employee
+class PartTimeEmployee extends Employee {
+    int hoursWorked;
+    double ratePerHour;
+
+    public PartTimeEmployee(int empId, String name, int hoursWorked, double ratePerHour) {
+        super(empId, name, 0);
+        this.hoursWorked = hoursWorked;
+        this.ratePerHour = ratePerHour;
+    }
+
+    @Override
+    double calculateSalary() {
+        return hoursWorked * ratePerHour;
+    }
+}
+
+// Contract Employee
+class ContractEmployee extends Employee {
+    double contractAmount;
+
+    public ContractEmployee(int empId, String name, double contractAmount) {
+        super(empId, name, 0);
+        this.contractAmount = contractAmount;
+    }
+
+    @Override
+    double calculateSalary() {
+        return contractAmount;
+    }
+}
+
+// Main Class
+public class EmployeeSalarySystem {
+    public static void main(String[] args) {
+
+        Employee emp1 = new FullTimeEmployee(101, "Alice", 5000, 1000);
+        Employee emp2 = new PartTimeEmployee(102, "Bob", 80, 20);
+        Employee emp3 = new ContractEmployee(103, "Charlie", 7000);
+
+        System.out.println("=== Employee Salary Details ===");
+
+        emp1.displayEmployeeInfo();
+        System.out.println("Salary: $" + emp1.calculateSalary());
+        System.out.println();
+
+        emp2.displayEmployeeInfo();
+        System.out.println("Salary: $" + emp2.calculateSalary());
+        System.out.println();
+
+        emp3.displayEmployeeInfo();
+        System.out.println("Salary: $" + emp3.calculateSalary());
+    }
+}
