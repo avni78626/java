@@ -1,0 +1,23 @@
+interface Vehicle {
+    void start();
+    void stop();
+    void accelerate();
+}
+
+class Car implements Vehicle {
+    public void start() { System.out.println("Car Started"); }
+    public void stop() { System.out.println("Car Stopped"); }
+    public void accelerate() { System.out.println("Car Accelerating"); }
+}
+
+class Bike implements Vehicle {
+    public void start() { System.out.println("Bike Started"); }
+    public void stop() { System.out.println("Bike Stopped"); }
+    public void accelerate() { System.out.println("Bike Accelerating"); }
+}
+
+class Truck implements Vehicle {
+    public void start() { System.out.println("Truck Started"); }
+    public void stop() { System.out.println("Truck Stopped"); }
+    public void accelerate() { System.out.println("Truck Accelerating"); }
+}
