@@ -1,0 +1,36 @@
+interface RemoteControl {
+    void turnOn();
+    void turnOff();
+    void increaseVolume();
+    void decreaseVolume();
+}
+
+class TV implements RemoteControl {
+    public void turnOn() { System.out.println("TV is ON"); }
+    public void turnOff() { System.out.println("TV is OFF"); }
+    public void increaseVolume() { System.out.println("TV Volume Increased"); }
+    public void decreaseVolume() { System.out.println("TV Volume Decreased"); }
+}
+
+class AirConditioner implements RemoteControl {
+    public void turnOn() { System.out.println("AC is ON"); }
+    public void turnOff() { System.out.println("AC is OFF"); }
+    public void increaseVolume() { System.out.println("Temperature Increased"); }
+    public void decreaseVolume() { System.out.println("Temperature Decreased"); }
+}
+
+class Speaker implements RemoteControl {
+    public void turnOn() { System.out.println("Speaker is ON"); }
+    public void turnOff() { System.out.println("Speaker is OFF"); }
+    public void increaseVolume() { System.out.println("Speaker Volume Increased"); }
+    public void decreaseVolume() { System.out.println("Speaker Volume Decreased"); }
+}
+
+class MainRemote {
+    public static void main(String[] args) {
+        RemoteControl device = new TV();
+        device.turnOn();
+        device.increaseVolume();
+        device.turnOff();
+    }
+}
