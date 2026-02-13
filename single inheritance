@@ -1,0 +1,50 @@
+lass Employee {
+    String name;
+    int id;
+    double salary;
+
+
+    public Employee(String name, int id, double salary) {
+        this.name = name;
+        this.id = id;
+        this.salary = salary;
+    }
+
+    
+    public void displayEmployeeDetails() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + id);
+        System.out.println("Salary: $" + salary);
+    }
+}
+
+class Manager extends Employee {
+    double bonus;
+
+    public Manager(String name, int id, double salary, double bonus) {
+        super(name, id, salary);  
+        this.bonus = bonus;
+    }
+
+    
+    public double calculateTotalSalary() {
+        return salary + bonus;
+    }
+
+    
+    public void displayManagerDetails() {
+        displayEmployeeDetails();
+        System.out.println("Bonus: $" + bonus);
+        System.out.println("Total Salary: $" + calculateTotalSalary());
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Manager manager = new Manager("Alice Johnson", 101, 5000, 1500);
+
+        System.out.println("=== Manager Details ===");
+        manager.displayManagerDetails();
+    }
+}
