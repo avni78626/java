@@ -1,0 +1,29 @@
+interface Discount {
+    double calculateDiscount(double amount);
+}
+
+class FestivalDiscount implements Discount {
+    public double calculateDiscount(double amount) {
+        return amount * 0.20; // 20% discount
+    }
+}
+
+class SeasonalDiscount implements Discount {
+    public double calculateDiscount(double amount) {
+        return amount * 0.10; // 10% discount
+    }
+}
+
+class MemberDiscount implements Discount {
+    public double calculateDiscount(double amount) {
+        return amount * 0.15; // 15% discount
+    }
+}
+
+class MainDiscount {
+    public static void main(String[] args) {
+        Discount discount = new FestivalDiscount();
+        double amount = 1000;
+        System.out.println("Discount: $" + discount.calculateDiscount(amount));
+    }
+}
