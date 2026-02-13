@@ -1,0 +1,60 @@
+// Level 1
+class Person {
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void displayPerson() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Level 2
+class Student extends Person {
+    String studentId;
+
+    public Student(String name, int age, String studentId) {
+        super(name, age);
+        this.studentId = studentId;
+    }
+
+    public void displayStudent() {
+        displayPerson();
+        System.out.println("Student ID: " + studentId);
+    }
+}
+
+// Level 3
+class GraduateStudent extends Student {
+    String researchTopic;
+
+    public GraduateStudent(String name, int age, String studentId, String researchTopic) {
+        super(name, age, studentId);
+        this.researchTopic = researchTopic;
+    }
+
+    public void displayResearchDetails() {
+        displayStudent();
+        System.out.println("Research Topic: " + researchTopic);
+    }
+}
+
+// Main Class
+class MainEducation {
+    public static void main(String[] args) {
+        GraduateStudent gradStudent = new GraduateStudent(
+                "John Smith", 
+                25, 
+                "STU1234", 
+                "Artificial Intelligence"
+        );
+
+        System.out.println("=== Graduate Student Details ===");
+        gradStudent.displayResearchDetails();
+    }
+}
